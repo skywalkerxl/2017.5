@@ -1,0 +1,14 @@
+body,input,h1 { margin: 0; padding: 0; }
+body { background: #9a99ff; }
+input { outline: none; border: none; }
+.wrap { width:850px; height:500px; margin:80px auto; background: #ffffff; border-radius: 10px; box-shadow: 0 0 10px 1px #ffffff; }
+
+
+.login_main { width:400px; height: 378px; padding-top: 120px;  position: relative; font-family: 'Microsoft YaHei UI';}
+.login_main h1 {text-align: center; position: absolute; top:20px; left: 0; right:0; font:normal 30px/50px  'Microsoft YaHei UI';  }
+.login_main input { display: block; width: 300px; height:40px; line-height: 40px; padding: 0 10px; margin: 30px auto; font-size: 20px; border-bottom: 2px solid #cfcfcf; }
+.login_main input.name { }
+.login_main input.btn { position: absolute; left: 0; right: 0; bottom: 100px; background: #cc0d13; opacity: 0.6; color: #ffffff; cursor: pointer; border-radius: 20px;}
+.login_main div.icon_wrap { position: absolute; bottom: 50px;  right: 0; width: 300px;  text-align: center; }
+.login_main div.icon_wrap  i.iconfont{  font-family:"iconfont";  font-size:32px;  font-style:normal; margin-left: 20px; cursor: pointer; color: #c1c1c1; }
+.login_main div.icon_wrap  i.iconfont:hover { color: #cc0d13; }

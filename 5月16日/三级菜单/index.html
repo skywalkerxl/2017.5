@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>横向菜单</title>
+    <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/iconfont.css">
+<style type="text/css">
+    /* public start */
+    .fl { float: left }
+    .fr { float: right }
+    html { width: 100% }
+    body { width: 100% }
+    .clear:after { display: block; content: ""; clear: both; }
+    /* public end & logo_show start*/
+    .logo_show { width: 100%; background: #66CCCC; height: 100px;}
+    /* logo_show end & menu start */
+
+    /* 一级菜单 */
+    .menu { width: 100% }
+    .menu ul.main_menu { width: 100%; background:#ffffff;  border-bottom: 1px solid #0088cc; border-radius: 2px; }
+    .menu .main_menu li.lv1_menu {  width:100px; height: 40px; font:200 16px/40px "Microsoft Yahei"; text-align: center; color: #005599; border-right: 1px solid #e5e5e5; border-radius:2px;cursor: pointer; }
+    .menu .main_menu li.lv1_menu:hover { background: #0088cc; color:#ffffff;}
+    .menu .main_menu li.lv1_menu span { position: relative;  }
+    /*二级菜单*/
+    .menu .main_menu .lv1_menu ul.lv2_main_menu {display: none; width: 130px; position: relative; left:20px; top:0; z-index: 4;  background: #ffffff; border-radius: 4px; box-shadow: 6px 6px 4px 0px #666666;}
+    .menu .main_menu .lv1_menu .lv2_main_menu li.lv2_menu { position: relative;  width: 120px; padding-left: 10px; color:#0088cc;  text-align: left; }
+    .menu .main_menu .lv1_menu .lv2_main_menu li.lv2_menu:hover { background: #f5f5f5; border-radius: 4px;}
+    .menu .main_menu .lv1_menu .lv2_main_menu li.lv2_menu:hover .rotate{transition: 0.3s; -webkit-transform: rotate(90deg); transform: rotate(90deg); -ms-transform: rotate(90deg); -moz-transform: rotate(90deg); -o-transform: rotate(90deg);  }
+    /* .menu .main_menu .lv1_menu .lv2_main_menu li.lv2_menu:hover ul.lv3_main_menu { display:block } */
+    /*三级菜单*/
+    .menu .main_menu .lv1_menu .lv2_main_menu .lv2_menu ul.lv3_main_menu {display: none; position: absolute; z-index: 3;  left: 130px; top:-25px; border-radius: 2px; background: #ffffff; color: #0088cc; box-shadow: 2px 2px 2px 2px #666666; }
+    .menu .main_menu .lv1_menu .lv2_main_menu .lv2_menu .lv3_main_menu li.lv3_menu { width: 120px; padding-left: 10px; }
+    .menu .main_menu .lv1_menu .lv2_main_menu .lv2_menu .lv3_main_menu li.lv3_menu:hover {background: #f5f5f5;  }
+
+    /* menu end & content start*/
+    .content { background: #99CCFF; height: 400px;  width: 100%; }
+    .content .tab_wrap { position: relative; z-index: 1; width: 100%; height: 30px; overflow: hidden; border: 1px solid #000000;}
+    .content input[type=button] {opacity: 0; position: absolute; width: 30px; height: 30px; line-height: 30px; font-size: 20px; border: none; }
+    .content input.left { left:0; top:0; }
+    .content input.right { right: 0; top: 0;}
+    .content .tab_wrap .tab { position: relative; z-index: -1;  width: 200px; padding-left: 30px; padding-right: 30px; background: #3D6AF1;}
+    .content .tab_wrap .tab li { width: 99px; height: 30px; text-align: center; font:200 16px/30px "Microsoft Yahei";  border-right: 1px solid #ffffff; background: #1a6592; color: #ffffff;}
+    /* content end */
+</style>
+</head>
+<body>
+    <div class="logo_show"></div>
+
+    <div class="menu">
+        <ul class="main_menu clear">
+            <li class="fl lv1_menu">
+                <span>菜单1</span>
+                <ul class="lv2_main_menu" >
+                    <li class="lv2_menu">
+                        <span>子菜单1</span>
+                    </li>
+                    <li class="lv2_menu">
+                        <span>子菜单1</span>
+                        <i class="iconfont rotate">&#xe612;</i>
+                        <ul class="lv3_main_menu" >
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="lv2_menu">
+                        <span>子菜单2</span>
+                        <i class="iconfont rotate">&#xe612;</i>
+                        <ul class="lv3_main_menu" >
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="lv2_menu">
+                        <span>子菜单3</span>
+                        <i class="iconfont rotate">&#xe612;</i>
+                        <ul class="lv3_main_menu">
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="lv2_menu">
+                        <span>子菜单4</span>
+                        <i class="iconfont rotate">&#xe612;</i>
+                        <ul class="lv3_main_menu">
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="fl lv1_menu">
+                <span>菜单1</span>
+                <ul class="lv2_main_menu" >
+                    <li class="lv2_menu">
+                        <span>子菜单1</span>
+                    </li>
+                    <li class="lv2_menu">
+                        <span>子菜单1</span>
+                        <i class="iconfont rotate">&#xe612;</i>
+                        <ul class="lv3_main_menu" >
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="lv2_menu">
+                        <span>子菜单2</span>
+                        <i class="iconfont rotate">&#xe612;</i>
+                        <ul class="lv3_main_menu" >
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="lv2_menu">
+                        <span>子菜单3</span>
+                        <i class="iconfont rotate">&#xe612;</i>
+                        <ul class="lv3_main_menu">
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="lv2_menu">
+                        <span>子菜单4</span>
+                        <i class="iconfont rotate">&#xe612;</i>
+                        <ul class="lv3_main_menu">
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="fl lv1_menu">
+                <span>菜单1</span>
+                <ul class="lv2_main_menu" >
+                    <li class="lv2_menu">
+                        <span>子菜单1</span>
+                    </li>
+                    <li class="lv2_menu">
+                        <span>子菜单1</span>
+                        <i class="iconfont rotate">&#xe612;</i>
+                        <ul class="lv3_main_menu" >
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="lv2_menu">
+                        <span>子菜单2</span>
+                        <i class="iconfont rotate">&#xe612;</i>
+                        <ul class="lv3_main_menu" >
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="lv2_menu">
+                        <span>子菜单3</span>
+                        <i class="iconfont rotate">&#xe612;</i>
+                        <ul class="lv3_main_menu">
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="lv2_menu">
+                        <span>子菜单4</span>
+                        <i class="iconfont rotate">&#xe612;</i>
+                        <ul class="lv3_main_menu">
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="fl lv1_menu">
+                <span>菜单1</span>
+                <ul class="lv2_main_menu" >
+                    <li class="lv2_menu">
+                        <span>子菜单1</span>
+                    </li>
+                    <li class="lv2_menu">
+                        <span>子菜单1</span>
+                        <i class="iconfont rotate">&#xe612;</i>
+                        <ul class="lv3_main_menu" >
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="lv2_menu">
+                        <span>子菜单2</span>
+                        <i class="iconfont rotate">&#xe612;</i>
+                        <ul class="lv3_main_menu" >
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="lv2_menu">
+                        <span>子菜单3</span>
+                        <i class="iconfont rotate">&#xe612;</i>
+                        <ul class="lv3_main_menu">
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="lv2_menu">
+                        <span>子菜单4</span>
+                        <i class="iconfont rotate">&#xe612;</i>
+                        <ul class="lv3_main_menu">
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="fl lv1_menu">
+                <span>菜单1</span>
+                <ul class="lv2_main_menu" >
+                    <li class="lv2_menu">
+                        <span>子菜单1</span>
+                    </li>
+                    <li class="lv2_menu">
+                        <span>子菜单1</span>
+                        <i class="iconfont rotate">&#xe612;</i>
+                        <ul class="lv3_main_menu" >
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="lv2_menu">
+                        <span>子菜单2</span>
+                        <i class="iconfont rotate">&#xe612;</i>
+                        <ul class="lv3_main_menu" >
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="lv2_menu">
+                        <span>子菜单3</span>
+                        <i class="iconfont rotate">&#xe612;</i>
+                        <ul class="lv3_main_menu">
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="lv2_menu">
+                        <span>子菜单4</span>
+                        <i class="iconfont rotate">&#xe612;</i>
+                        <ul class="lv3_main_menu">
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="fl lv1_menu">
+                <span>菜单1</span>
+                <ul class="lv2_main_menu" >
+                    <li class="lv2_menu">
+                        <span>子菜单1</span>
+                    </li>
+                    <li class="lv2_menu">
+                        <span>子菜单1</span>
+                        <i class="iconfont rotate">&#xe612;</i>
+                        <ul class="lv3_main_menu" >
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="lv2_menu">
+                        <span>子菜单2</span>
+                        <i class="iconfont rotate">&#xe612;</i>
+                        <ul class="lv3_main_menu" >
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="lv2_menu">
+                        <span>子菜单3</span>
+                        <i class="iconfont rotate">&#xe612;</i>
+                        <ul class="lv3_main_menu">
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="lv2_menu">
+                        <span>子菜单4</span>
+                        <i class="iconfont rotate">&#xe612;</i>
+                        <ul class="lv3_main_menu">
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="fl lv1_menu">
+                <span>菜单1</span>
+                <ul class="lv2_main_menu" >
+                    <li class="lv2_menu">
+                        <span>子菜单1</span>
+                    </li>
+                    <li class="lv2_menu">
+                        <span>子菜单1</span>
+                        <i class="iconfont rotate">&#xe612;</i>
+                        <ul class="lv3_main_menu" >
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="lv2_menu">
+                        <span>子菜单2</span>
+                        <i class="iconfont rotate">&#xe612;</i>
+                        <ul class="lv3_main_menu" >
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="lv2_menu">
+                        <span>子菜单3</span>
+                        <i class="iconfont rotate">&#xe612;</i>
+                        <ul class="lv3_main_menu">
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="lv2_menu">
+                        <span>子菜单4</span>
+                        <i class="iconfont rotate">&#xe612;</i>
+                        <ul class="lv3_main_menu">
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="fl lv1_menu">
+                <span>菜单1</span>
+                <ul class="lv2_main_menu" >
+                    <li class="lv2_menu">
+                        <span>子菜单1</span>
+                    </li>
+                    <li class="lv2_menu">
+                        <span>子菜单1</span>
+                        <i class="iconfont rotate">&#xe612;</i>
+                        <ul class="lv3_main_menu" >
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="lv2_menu">
+                        <span>子菜单2</span>
+                        <i class="iconfont rotate">&#xe612;</i>
+                        <ul class="lv3_main_menu" >
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="lv2_menu">
+                        <span>子菜单3</span>
+                        <i class="iconfont rotate">&#xe612;</i>
+                        <ul class="lv3_main_menu">
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="lv2_menu">
+                        <span>子菜单4</span>
+                        <i class="iconfont rotate">&#xe612;</i>
+                        <ul class="lv3_main_menu">
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                            <li class="lv3_menu">
+                                <span>孙子菜单1</span>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="content">
+         <!--<div class="tab_wrap">
+            <input type="button" class="left" value="<">
+            <ul class="tab clear">
+                <li class="fl">孙子菜单1</li>
+                <li class="fl">孙子菜单5</li>
+            </ul>
+            <input type="button" class="right" value=">">
+         -->
+        </div>
+
+    </div>
+
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" >
+    $(function () {
+        $(document).ready(function () {
+            $(".lv1_menu").hover(function () {
+                $(this).children(".lv2_main_menu")
+                        .stop()
+                        .slideDown(400);
+                if( !($(this).children("span")).is(":animated") ){
+                    $(this).children("span").animate({ "top":"-5px" },200);
+                }
+
+                $(this).children(".lv2_main_menu").children(".lv2_menu").hover(function () {
+                    // 用于控制3级菜单的位置，便于点击
+                    if(   $(this).children("ul").children("li").length == 1 ) {
+                        $(this).children("ul").css("top","0");
+                    }
+                    //显示
+                    $(this).children(".lv3_main_menu").css("display", "block");
+                    /*if( !( $(this).children(".lv3_main_menu") ).is(":animated") ){
+                     $(this).children(".lv3_main_menu").animate({ left: "100px" }, 200);
+                     }*/
+                },function () {
+                    //隐藏
+                    $(this).children(".lv3_main_menu").css( "display", "none" );
+                    /*if( !( $(this).children(".lv3_main_menu") ).is(":animated") ){
+                     $(this).children(".lv3_main_menu").animate({ left: "0px"}, 0);
+                     }*/
+                })
+            },function () {
+                $(this).children("span").animate({ "top":"0px" },200);
+                $(this).children(".lv2_main_menu")
+                        .stop()
+                        .slideUp(200);
+            });
+            /*
+             var li_width = $("ul.tab").children("li").outerWidth();
+             var tab_width = $("ul.tab").outerWidth();
+
+             //选取不包含ul的li的内容
+             $("li:not( li:has(ul) )").click(function () {
+             console.log($(this).children().html());
+             var li_content = $(this).children().html();
+             tab_width += li_width;
+             $("ul.tab").css("width", tab_width);
+             console.log(tab_width,li_width);
+             $("ul.tab").append("<li class='fl'>"+ li_content +"</li>");
+             if( tab_width >= $("div.tab_wrap").outerWidth() ){
+             $("input[type=button]").css("opacity","1");
+             }
+             if( $("ul.tab").children().html() != li_content ){
+             $("ul.tab").append("<li class='fl'>"+ li_content +"</li>");
+             }
+             });
+             */
+
+            /*
+             $("input.right").click(function () {
+             if( !($("ul.tab")).is(":animated") ){
+             $("ul.tab").animate({left:  "-=" + li_width},400);
+             }
+             });
+             $("input.left").click(function () {
+             if( !($("ul.tab")).is(":animated") ){
+
+             $("ul.tab").animate({left:  "+=" + li_width},400);
+             }
+             })
+             */
+        });
+    })
+
+    
+
+</script>
+</body>
+</html>
